@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
           mouseInfluence={0.25}
         />
       </div>
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
         <ShapeGrid 
           speed={0}
           squareSize={40}

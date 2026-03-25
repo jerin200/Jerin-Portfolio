@@ -245,8 +245,8 @@ export default function SoftAurora({
     container.appendChild(gl.canvas);
 
     if (enableMouseInteraction) {
-      gl.canvas.addEventListener('mousemove', handleMouseMove);
-      gl.canvas.addEventListener('mouseleave', handleMouseLeave);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseleave', handleMouseLeave);
     }
 
     let animationFrameId: number;
@@ -273,8 +273,8 @@ export default function SoftAurora({
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
       if (enableMouseInteraction) {
-        gl.canvas.removeEventListener('mousemove', handleMouseMove);
-        gl.canvas.removeEventListener('mouseleave', handleMouseLeave);
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseleave', handleMouseLeave);
       }
       if (container && gl.canvas.parentNode === container) {
         container.removeChild(gl.canvas);
