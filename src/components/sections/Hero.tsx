@@ -21,22 +21,22 @@ export const Hero: React.FC = () => {
           layerOffset={0}
           colorSpeed={1}
           enableMouseInteraction
-          mouseInfluence={0.25}
+          mouseInfluence={0.4}
         />
       </div>
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
-        <ShapeGrid 
+        <ShapeGrid
           speed={0}
           squareSize={40}
           borderColor="rgba(255, 255, 255, 0.03)"
-          hoverFillColor="rgba(255, 255, 255, 0.05)"
+          hoverFillColor="rgba(255, 255, 255, 0.1)"
           shape="square"
-          hoverTrailAmount={0}
+          hoverTrailAmount={4}
         />
       </div>
       <div className="hero-content">
         <h1 className="hero-title">
-          <span className="serif-caps">JERIN S REJI</span>
+          <span className="serif-caps">Jerin S Reji</span>
           <span className="serif-italic">UI/UX Engineer · Experience Designer</span>
         </h1>
         {/* <div className="hero-body">

@@ -29,10 +29,10 @@
 }
 
 .serif-caps {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Clash Display', sans-serif;
   font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: 500;
+  /* text-transform: uppercase; */
   letter-spacing: 0.02em;
   display: block;
   margin-bottom: 0.1em;
