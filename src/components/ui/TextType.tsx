@@ -105,9 +105,6 @@ const TextType = ({
           if (currentTextIndex === textArray.length - 1 && !loop) {
             return;
           }
-          if (onSentenceComplete) {
-            onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
-          }
           setCurrentTextIndex(prev => (prev + 1) % textArray.length);
           setCurrentCharIndex(0);
           timeout = setTimeout(() => {}, pauseDuration);
@@ -120,12 +117,18 @@ const TextType = ({
         if (currentCharIndex < processedText.length) {
           timeout = setTimeout(
             () => {
-              setDisplayedText(prev => prev + processedText[currentCharIndex]);
+              const nextChar = processedText[currentCharIndex];
+              setDisplayedText(prev => prev + nextChar);
               setCurrentCharIndex(prev => prev + 1);
             },
             variableSpeed ? getRandomSpeed() : typingSpeed
           );
         } else if (textArray.length >= 1) {
+          // Trigger complete when typing is finished
+          if (onSentenceComplete) {
+            onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
+          }
+
           if (!loop && currentTextIndex === textArray.length - 1) return;
           timeout = setTimeout(() => {
             setIsDeleting(true);
