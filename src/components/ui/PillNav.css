@@ -1,6 +1,6 @@
 .pillnav-wrapper {
   position: absolute;
-  top: 2.5em;
+  top: 1em;
   z-index: 1000;
   width: 100%;
   left: 0;
@@ -9,6 +9,7 @@
 @media (min-width: 768px) {
   .pillnav-wrapper {
     width: auto;
+    top: 2.5em;
     left: auto;
     /* Center it by default on tablet/desktop */
     left: 50%;
