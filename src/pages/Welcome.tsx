@@ -1,34 +1,41 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import TextType from '../components/ui/TextType';
+import { Terminal } from '../components/ui/Terminal';
 
 export const Welcome: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleSentenceComplete = useCallback((_sentence: string, index: number) => {
-    // There are 3 sentences (indices 0, 1, 2)
-    // When the last one stops typing, we wait briefly then navigate.
-    if (index === 2) {
-      setTimeout(() => {
-        navigate('/home', { replace: true });
-      }, 1500); // 1.5 seconds pause after last sentence
-    }
+  const handleComplete = useCallback(() => {
+    navigate('/home', { replace: true });
   }, [navigate]);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-[#00ff41]" style={{ fontFamily: '"JetBrains Mono", "Space Mono", monospace' }}>
-      <div className="text-2xl md:text-3xl font-bold tracking-widest uppercase">
-        <TextType
-          text={["Loading…", "Crafting experience…", "Almost ready…"]}
-          typingSpeed={80}
-          pauseDuration={1000}
-          showCursor
-          cursorCharacter="█"
-          cursorBlinkDuration={0.4}
-          loop={false}
-          onSentenceComplete={handleSentenceComplete}
-        />
-      </div>
+    <div className="flex items-center justify-center h-screen bg-neutral-950 font-sans">
+      <Terminal 
+        commands={[
+          "npm install @jerin/portfolio",
+          "npm run execute --dev",
+        ]}
+        outputs={{
+          0: [
+            "installing dependencies...",
+            "resolved 154 packages",
+            "added 27 packages, and audited 155 packages in 2s",
+            "found 0 vulnerabilities"
+          ],
+          1: [
+            "> portfolio@1.0.0 execute",
+            "Loading interface components...",
+            "Initializing WebGL context...",
+            "Mounting virtual DOM...",
+            "Connection established."
+          ]
+        }}
+        username="jerin"
+        onComplete={handleComplete}
+        typingSpeed={40}
+        delayBetweenCommands={500}
+      />
     </div>
   );
 };

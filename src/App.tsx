@@ -2,9 +2,6 @@ import { HashRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'r
 import { useEffect } from 'react';
 import { Home } from './pages/Home';
 import { Welcome } from './pages/Welcome';
-import PillNav from './components/ui/PillNav';
-import StaggeredMenu from './components/ui/StaggeredMenu';
-import logo from './assets/logo.svg';
 import './index.css';
 
 function InitRedirect() {
@@ -21,65 +18,10 @@ function InitRedirect() {
 }
 
 function AppContent() {
-  const menuItems = [
-    { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-    { label: 'Services', ariaLabel: 'View our services', link: '/services' },
-    { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
-  ];
-
-  const socialItems = [
-    { label: 'Twitter', link: 'https://twitter.com' },
-    { label: 'GitHub', link: 'https://github.com' },
-    { label: 'LinkedIn', link: 'https://linkedin.com' }
-  ];
-
-  const location = useLocation();
-  const isWelcomePage = location.pathname === '/welcome';
-
   return (
     <div className="app">
       <InitRedirect />
-      {!isWelcomePage && (
-        <>
-          <div className="desktop-only">
-            <PillNav
-              logo={logo}
-              logoAlt="Company Logo"
-              items={[
-                { label: 'Home', href: '/home' },
-                { label: 'About', href: '/about' },
-                { label: 'Services', href: '/services' },
-                { label: 'Contact', href: '/contact' }
-              ]}
-              activeHref={location.pathname}
-              ease="power2.easeOut"
-              baseColor="#000000"
-              pillColor="#ffffff"
-              hoveredPillTextColor="#ffffff"
-              pillTextColor="#000000"
-              initialLoadAnimation={false}
-            />
-          </div>
-
-          <div className="mobile-only" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 1000, pointerEvents: 'none' }}>
-            <StaggeredMenu
-              position="right"
-              items={menuItems.map(item => ({...item, link: item.link === '/' ? '/home' : item.link}))}
-              socialItems={socialItems}
-              displaySocials
-              displayItemNumbering={true}
-              menuButtonColor="#ffffff"
-              openMenuButtonColor="#111"
-              changeMenuColorOnOpen={true}
-              colors={['#B19EEF', '#5227FF']}
-              logoUrl={logo}
-              accentColor="#5227FF"
-              isFixed={true}
-            />
-          </div>
-        </>
-      )}
+      {/* Headers have been moved directly into page components for tailored aesthetics */}
       <Routes>
         <Route path="/" element={<Navigate replace to="/welcome" />} />
         <Route path="/welcome" element={<Welcome />} />

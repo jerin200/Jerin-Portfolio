@@ -30,17 +30,19 @@
 
 .serif-caps {
   font-family: 'Clash Display', sans-serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  /* font-size: clamp(3rem, 7vw, 5.5rem); */
   font-weight: 500;
   /* text-transform: uppercase; */
   letter-spacing: 0.02em;
+  font-size: 40px;
   display: block;
   margin-bottom: 0.1em;
 }
 
 .serif-italic {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-size: 20px;
+  /* font-size: clamp(1.8rem, 4vw, 3.5rem); */
   font-weight: 400;
   font-style: italic;
   display: block;
