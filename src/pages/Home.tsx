@@ -15,7 +15,8 @@ export const Home: React.FC = () => {
       <StaggeredMenu 
         isFixed={true} 
         position="right"
-        accentColor="#fc42ff"
+        colors={['#ccf035', '#e4ff4e']}
+        accentColor="#e4ff4e"
         menuButtonColor="#ffffff"
         openMenuButtonColor="#000000"
         logoUrl="" // Hidden for massive absolute design minimalism

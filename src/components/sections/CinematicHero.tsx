@@ -128,11 +128,11 @@ export const CinematicHero = () => {
         className="w-full flex flex-col items-center relative z-20 gap-12 md:gap-16"
       >
         {/* Massive text structured for wide headline */}
-        <div className="flex flex-col items-center perspective-1000 w-full max-w-[1200px] text-center overflow-visible gap-1 md:gap-2 lg:gap-3">
+        <div className="flex flex-col items-center perspective-1000 w-full max-w-[1200px] text-center overflow-visible">
           <h1 ref={title1Ref} style={{ fontFamily: '"Anton", sans-serif' }} className="text-[5.5vw] sm:text-[4.5vw] md:text-[3rem] lg:text-[4rem] xl:text-[4.5rem] font-bold uppercase leading-[1.05] tracking-[0.05em] md:tracking-widest text-white relative z-10 whitespace-nowrap">
             {splitText('DESIGNING EXPERIENCES')}
           </h1>
-          <div ref={title2Ref} className="w-full max-w-[800px] h-[40px] sm:h-[50px] md:h-[70px] lg:h-[90px] mt-[-5px] md:mt-0 relative z-10 flex justify-center items-center">
+          <div ref={title2Ref} className="w-full max-w-[800px] h-[40px] sm:h-[50px] md:h-[70px] lg:h-[90px] mt-[-25px] md:mt-[-40px] lg:mt-[-55px] relative z-10 flex justify-center items-center">
             <TextHoverEffect text="THAT FEEL EFFORTLESS." />
           </div>
         </div>
@@ -149,7 +149,7 @@ export const CinematicHero = () => {
       </motion.div>
 
       {/* --- Creative Architectural Grid Framework --- */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-70">
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-70 z-30">
 
         {/* --- HORIZONTAL GRID LINES --- */}
         <div className="w-[100vw] h-px bg-white/10 absolute top-[20%] overflow-hidden">
