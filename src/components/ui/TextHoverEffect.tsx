@@ -40,13 +40,13 @@ export const TextHoverEffect = ({ text }: { text: string }) => {
       className="relative w-full h-full flex items-center justify-center group overflow-visible"
     >
       {/* Base Layer: Faded stroke outline just like the original layout */}
-      <h1 className="text-[4.5vw] sm:text-[4vw] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] uppercase leading-[1.05] tracking-[0.05em] md:tracking-widest text-transparent outline-text opacity-70 relative z-10 text-center w-full whitespace-nowrap transition-opacity duration-300">
+      <h1 className="text-[9vw] sm:text-[4vw] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] uppercase leading-[1.2] sm:leading-[1.05] tracking-[0.05em] md:tracking-widest text-transparent outline-text opacity-70 relative z-10 text-center w-full transition-opacity duration-300 break-words sm:whitespace-nowrap">
         {text}
       </h1>
 
       {/* Hover Layer: Gradient flashlight reveal via CSS Mask */}
       <h1
-        className="absolute flex items-center justify-center text-[4.5vw] sm:text-[4vw] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] uppercase leading-[1.05] tracking-[0.05em] md:tracking-widest text-center w-full whitespace-nowrap pointer-events-none"
+        className="absolute flex items-center justify-center text-[9vw] sm:text-[4vw] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] uppercase leading-[1.2] sm:leading-[1.05] tracking-[0.05em] md:tracking-widest text-center w-full pointer-events-none break-words sm:whitespace-nowrap h-full"
         style={{
           backgroundImage: 'linear-gradient(90deg, #e4ff4e, #ccf035, #e4ff4e)',
           backgroundSize: '100% 100%',

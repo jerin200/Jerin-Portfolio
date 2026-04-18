@@ -55,11 +55,19 @@ export const CinematicHero = () => {
   const scale = useTransform(scrollYProgress, [0, 0.6], [1, 0.95]);
 
   const splitText = (text: string) => {
-    return text.split('').map((char, index) => (
-      <span key={index} className="char inline-block will-change-transform" style={{ transformStyle: 'preserve-3d' }}>
-        {char === ' ' ? '\u00A0' : char}
+    return (
+      <span className="flex flex-wrap justify-center gap-x-[0.3em]">
+        {text.split(' ').map((word, wordIndex) => (
+          <span key={wordIndex} className="inline-flex">
+            {word.split('').map((char, charIndex) => (
+              <span key={charIndex} className="char inline-block will-change-transform" style={{ transformStyle: 'preserve-3d' }}>
+                {char}
+              </span>
+            ))}
+          </span>
+        ))}
       </span>
-    ));
+    );
   };
 
   const [time, setTime] = useState(new Date());
@@ -125,22 +133,22 @@ export const CinematicHero = () => {
 
       <motion.div
         style={{ opacity, y, scale }}
-        className="w-full flex flex-col items-center relative z-20 gap-12 md:gap-16"
+        className="w-full flex flex-col items-center relative z-20 gap-6 md:gap-8 lg:gap-10"
       >
         {/* Massive text structured for wide headline */}
         <div className="flex flex-col items-center perspective-1000 w-full max-w-[1200px] text-center overflow-visible">
-          <h1 ref={title1Ref} style={{ fontFamily: '"Anton", sans-serif' }} className="text-[5.5vw] sm:text-[4.5vw] md:text-[3rem] lg:text-[4rem] xl:text-[4.5rem] font-bold uppercase leading-[1.05] tracking-[0.05em] md:tracking-widest text-white relative z-10 whitespace-nowrap">
+          <h1 ref={title1Ref} style={{ fontFamily: '"Anton", sans-serif' }} className="text-[11vw] sm:text-[6vw] md:text-[3rem] lg:text-[4rem] xl:text-[4.5rem] font-bold uppercase leading-[1.15] sm:leading-[1] tracking-[0.02em] md:tracking-widest text-white relative z-10 w-full">
             {splitText('DESIGNING EXPERIENCES')}
           </h1>
-          <div ref={title2Ref} className="w-full max-w-[800px] h-[40px] sm:h-[50px] md:h-[70px] lg:h-[90px] mt-[-25px] md:mt-[-40px] lg:mt-[-55px] relative z-10 flex justify-center items-center">
+          <div ref={title2Ref} className="w-full max-w-[800px] mt-2 md:mt-[-10px] lg:mt-[-20px] relative z-10 flex justify-center items-center px-4">
             <TextHoverEffect text="THAT FEEL EFFORTLESS." />
           </div>
         </div>
 
-        <div ref={elementsRef} className="flex flex-col items-center w-full gap-8 md:gap-12">
+        <div ref={elementsRef} className="flex flex-col items-center w-full gap-5 md:gap-6 lg:gap-8 px-4 mt-4 md:mt-8">
 
-          <p className="text-xs md:text-sm text-white/60 max-w-2xl font-mono uppercase leading-[2.2] tracking-widest px-4">
-            I’m <span className="text-white font-bold tracking-[0.2em]">Jerin S Reji</span> — a UX Designer & UI Developer crafting intuitive, high-performance digital products that balance aesthetics with usability.
+          <p className="text-xs md:text-sm text-white/60 max-w-2xl font-mono uppercase leading-[1.8] md:leading-[2.2] tracking-widest text-center">
+            I’m <span className="text-white font-bold tracking-[0.2em] block sm:inline mt-2 sm:mt-0">Jerin S Reji</span><span className="hidden sm:inline"> — </span><span className="block sm:hidden mt-1"></span>a UX Designer & UI Developer crafting intuitive, high-performance digital products that balance aesthetics with usability.
           </p>
 
           <NeuButton />
@@ -170,19 +178,19 @@ export const CinematicHero = () => {
         </div>
 
         {/* --- VERTICAL GRID LINES --- */}
-        <div className="h-[100vh] w-px bg-white/10 absolute left-[20%] hidden md:block overflow-hidden">
+        <div className="h-[100vh] w-px bg-white/10 absolute left-[20%] overflow-hidden">
           <div className="absolute left-1/2 -translate-x-1/2 w-[300px] h-[50vh] top-[-50%] rounded-full opacity-50 z-0"
             style={{ background: `radial-gradient(circle, #e4ff4e, transparent 10%)`, animation: 'star-movement-y-down 7s linear infinite alternate' }} />
         </div>
-        <div className="h-[100vh] w-px bg-white/10 absolute left-[40%] hidden md:block overflow-hidden">
+        <div className="h-[100vh] w-px bg-white/10 absolute left-[40%] overflow-hidden">
           <div className="absolute left-1/2 -translate-x-1/2 w-[300px] h-[50vh] bottom-[-50%] rounded-full opacity-50 z-0"
             style={{ background: `radial-gradient(circle, rgba(228,255,78,0.6), transparent 10%)`, animation: 'star-movement-y-up 9s linear infinite alternate' }} />
         </div>
-        <div className="h-[100vh] w-px bg-white/10 absolute left-[60%] hidden md:block overflow-hidden">
+        <div className="h-[100vh] w-px bg-white/10 absolute left-[60%] overflow-hidden">
           <div className="absolute left-1/2 -translate-x-1/2 w-[300px] h-[50vh] top-[-50%] rounded-full opacity-50 z-0"
             style={{ background: `radial-gradient(circle, #e4ff4e, transparent 10%)`, animation: 'star-movement-y-down 5s linear infinite alternate' }} />
         </div>
-        <div className="h-[100vh] w-px bg-white/10 absolute left-[80%] hidden md:block overflow-hidden">
+        <div className="h-[100vh] w-px bg-white/10 absolute left-[80%] overflow-hidden">
           <div className="absolute left-1/2 -translate-x-1/2 w-[300px] h-[50vh] bottom-[-50%] rounded-full opacity-50 z-0"
             style={{ background: `radial-gradient(circle, rgba(228,255,78,0.6), transparent 10%)`, animation: 'star-movement-y-up 6s linear infinite alternate' }} />
         </div>
@@ -192,7 +200,7 @@ export const CinematicHero = () => {
           [20, 40, 60, 80].map((left) => (
             <div
               key={`${top}-${left}`}
-              className="absolute -translate-x-1/2 -translate-y-1/2 hidden md:block text-white/50 text-[10px] font-mono"
+              className="absolute -translate-x-1/2 -translate-y-1/2 text-white/50 text-[10px] font-mono"
               style={{ top: `${top}%`, left: `${left}%` }}
             >
               +
