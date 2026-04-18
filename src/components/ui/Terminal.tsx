@@ -435,7 +435,7 @@ export function Terminal({
     <div
       ref={containerRef}
       className={cn(
-        "mx-auto w-[85%] sm:w-full max-w-md sm:max-w-xl px-2 sm:px-4 font-mono text-[10px] sm:text-xs",
+        "mx-auto w-[85%] sm:w-full max-w-sm sm:max-w-md px-2 sm:px-4 font-mono text-[10px] sm:text-xs",
         className
       )}
     >
@@ -458,7 +458,7 @@ export function Terminal({
         {/* Terminal Content */}
         <div
           ref={contentRef}
-          className="no-visible-scrollbar h-60 sm:h-80 overflow-y-auto p-3 sm:p-4 font-mono"
+          className="no-visible-scrollbar h-48 sm:h-64 overflow-y-auto p-3 sm:p-4 font-mono"
         >
           {lines.map((line, i) => (
             <div key={i} className="leading-relaxed whitespace-pre-wrap">
